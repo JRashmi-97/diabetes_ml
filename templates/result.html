@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prediction Result</title>
+  <style>
+    /* ===== General & Background ===== */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .background {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(120deg, #d9a7c7, #fffcdc, #fbc2eb, #a6c1ee);
+      background-size: 400% 400%;
+      animation: gradientMove 15s ease infinite;
+      z-index: -1;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* ===== Layout ===== */
+    .main-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+      width: 80%;
+      max-width: 1000px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 25px;
+      backdrop-filter: blur(15px);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+      overflow: hidden;
+      animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== Left Section (Result) ===== */
+    .result-section {
+      flex: 1;
+      padding: 40px;
+      text-align: center;
+      background: rgba(255,255,255,0.25);
+    }
+
+    .result-section h2 {
+      color: #7b2ff7;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .result-text {
+      font-size: 22px;
+      font-weight: bold;
+      color: #7b2ff7;
+      margin: 25px 0;
+      animation: glow 1.5s infinite alternate;
+    }
+
+    @keyframes glow {
+      0% { text-shadow: 0 0 5px #7b2ff7; }
+      100% { text-shadow: 0 0 20px #fcb1b1; }
+    }
+
+    .back-btn {
+      display: inline-block;
+      padding: 12px 25px;
+      border-radius: 25px;
+      background: linear-gradient(90deg, #fcb1b1, #7b2ff7);
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .back-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    /* ===== Right Section (Tips) ===== */
+    .tips-section {
+      flex: 1;
+      background: rgba(255,255,255,0.15);
+      padding: 40px;
+      color: #3a3a3a;
+      border-left: 2px solid rgba(255,255,255,0.3);
+    }
+
+    .tips-section h3 {
+      color: #7b2ff7;
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+
+    .tips-section ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .tips-section ul li {
+      background: rgba(255,255,255,0.3);
+      margin: 8px 0;
+      padding: 10px;
+      border-radius: 8px;
+    }
+
+    .tips-section p {
+      font-size: 14px;
+      margin-top: 20px;
+      color: #555;
+      font-style: italic;
+    }
+
+    /* ===== Responsive ===== */
+    @media(max-width: 800px) {
+      .main-container {
+        flex-direction: column;
+        width: 90%;
+      }
+      .tips-section {
+        border-left: none;
+        border-top: 2px solid rgba(255,255,255,0.3);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="background"></div>
+
+  <div class="main-container">
+    <!-- Left: Result -->
+    <div class="result-section">
+      <h2>🩺 Prediction Result</h2>
+      <p class="result-text">{{ prediction }}</p>
+      <a href="/" class="back-btn">🔙 Go Back</a>
+    </div>
+
+    <!-- Right: Info / Tips -->
+    <div class="tips-section">
+      <h3>🌿 Tips to Control Diabetes</h3>
+      <ul>
+        <li>🍏 Eat fiber-rich fruits and vegetables</li>
+        <li>🚶‍♂️ Walk or exercise at least 30 mins daily</li>
+        <li>💧 Drink enough water throughout the day</li>
+        <li>😴 Get 7–8 hours of quality sleep</li>
+        <li>🩸 Regularly monitor blood sugar levels</li>
+      </ul>
+      <p>💬 Note: These are general health tips — please consult your doctor for personalized medical advice.</p>
+    </div>
+  </div>
+</body>
+</html>
