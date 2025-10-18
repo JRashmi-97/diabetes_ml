@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diabetes Prediction</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="background"></div>
+
+  <div class="main-container">
+    <!-- ===== Left Section: Form ===== -->
+    <div class="form-section">
+      <h2>🩺 Diabetes Prediction</h2>
+      <p><strong>Best Model:</strong> {{ model_name }}</p>
+      <p><strong>Accuracy:</strong> {{ accuracy }}</p>
+      <hr>
+
+      <form action="/predict" method="post">
+        <input type="number" name="pregnancies" placeholder="Pregnancies" required><br>
+        <input type="number" name="glucose" placeholder="Glucose Level" required><br>
+        <input type="number" name="blood_pressure" placeholder="Blood Pressure" required><br>
+        <input type="number" name="skin_thickness" placeholder="Skin Thickness" required><br>
+        <input type="number" name="insulin" placeholder="Insulin Level" required><br>
+        <input type="number" step="0.1" name="bmi" placeholder="BMI" required><br>
+        <input type="number" step="0.1" name="dpf" placeholder="Diabetes Pedigree Function" required><br>
+        <input type="number" name="age" placeholder="Age" required><br>
+        <button type="submit">Predict</button>
+      </form>
+    </div>
+
+    <!-- ===== Right Section: Info ===== -->
+    <div class="info-section">
+      <h3>💡 Did You Know?</h3>
+      <p>Diabetes affects millions worldwide, but early prediction can save lives.</p>
+      <ul>
+        <li>🍎 Maintain a balanced diet</li>
+        <li>🏃‍♀️ Exercise regularly</li>
+        <li>💧 Stay hydrated</li>
+        <li>🩸 Monitor your glucose levels</li>
+      </ul>
+      <p class="note">Use this prediction tool as a guide — always consult a doctor for medical advice.</p>
+    </div>
+  </div>
+</body>
+</html>
